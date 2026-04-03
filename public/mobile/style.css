@@ -3655,3 +3655,31 @@ animation:loader-spin 1s linear infinite;
 .site-footer .contact-info li a:hover {
     color: #ff3f6c !important;
 }
+.search-box {
+    position: relative;
+}
+
+.web-search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 9999;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 5px;
+}
+
+.web-suggestion-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.web-suggestion-item:hover {
+    background: #f5f5f5;
+}

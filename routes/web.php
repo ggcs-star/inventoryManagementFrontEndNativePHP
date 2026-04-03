@@ -8,10 +8,9 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-// Project start → Landing page
-Route::get('/', fn () => redirect('/landing'));
-
-
+Route::get('/', function () {
+    return view('mobile.landing');
+});
 /*
 |--------------------------------------------------------------------------
 | Public Pages

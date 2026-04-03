@@ -278,7 +278,11 @@
     <nav class="mobile-bottom-nav" id="mobile-bottom-nav"></nav>
     <div class="mobile-sticky-cta" id="mobile-sticky-cta"></div>
 </div>
+<script>
+    window.API_BASE_URL = "{{ env('API_BASE_URL') }}";
+</script>
 
 <script src="{{ asset('mobile/script.js') }}"></script>
+<script src="{{ asset('mobile/search.js') }}"></script>
 </body>
 </html>

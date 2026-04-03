@@ -1188,9 +1188,15 @@
         </div>
     </div>
 </div>
+<script>
+    window.API_BASE_URL = "{{ env('API_BASE_URL') }}";
+</script>
+
 <script src="{{ asset('mobile/script.js') }}"></script>
 
+
 <script>
+    
 (function() {
     const subId = document.body.dataset.subcategoryId;
     const catId = document.body.dataset.categoryId;
@@ -1203,7 +1209,7 @@
 
     async function fetchData() {
         try {
-            const res = await fetch('https://retailadmin.ggconsultancy.services/api/categories');
+            const res = await fetch(`${API_BASE_URL}/categories`);
             const data = await res.json();
             
             if (data.success) {
@@ -1231,7 +1237,7 @@
 
     async function updateMobileLogo() {
     try {
-        const res = await fetch('https://retailadmin.ggconsultancy.services/api/app-settings');
+        const res = await fetch(`${API_BASE_URL}/app-settings`);
         const data = await res.json();
         if (data.success) {
             const logo = data.data.header_logo || data.data.app_logo;
@@ -1273,7 +1279,7 @@ updateMobileLogo();
         const grid = document.getElementById('productsGrid');
         
         try {
-            const res = await fetch(`https://retailadmin.ggconsultancy.services/api/categories/${subId}/products`);
+            const res = await fetch(`${API_BASE_URL}/categories/${subId}/products`);
             const data = await res.json();
             
             if (data.success && data.data.products) {
@@ -1540,7 +1546,7 @@ updateMobileLogo();
         switch(filterType) {
             case 'category':
                 try {
-                    const res = await fetch('https://retailadmin.ggconsultancy.services/api/categories');
+                    const res = await fetch(`${API_BASE_URL}/categories`);
                     const data = await res.json();
                     
                     if (data.success) {
@@ -1580,7 +1586,7 @@ updateMobileLogo();
             case 'brand':
                 const targetId = subcategoryId || categoryId;
                 if (targetId) {
-                    const res = await fetch(`https://retailadmin.ggconsultancy.services/api/categories/${targetId}/products`);
+                    const res = await fetch(`${API_BASE_URL}/categories/${targetId}/products`);
                     const data = await res.json();
                     
                     if (data.success && data.data.products) {
@@ -1744,7 +1750,7 @@ async function loadProductDesktopHeader() {
     if (!navMenu) return;
     
     try {
-        const res = await fetch('https://retailadmin.ggconsultancy.services/api/categories');
+        const res = await fetch(`${API_BASE_URL}/categories`);
         const data = await res.json();
         
         if (data.success) {
@@ -1848,7 +1854,7 @@ function updateCartCountBadge() {
 }
 async function fetchAppSettingsForProducts() {
     try {
-        const response = await fetch('https://retailadmin.ggconsultancy.services/api/app-settings');
+        const response = await fetch(`${API_BASE_URL}/app-settings`);
         const data = await response.json();
         if (data.success) {
             const appName = data.data.app_name;
@@ -1891,7 +1897,7 @@ function initDesktopFiltersToggle() {
     });
 }
 setTimeout(function() {
-    fetch('https://retailadmin.ggconsultancy.services/api/app-settings')
+    fetch(`${API_BASE_URL}/app-settings`)
         .then(r => r.json())
         .then(data => {
             if (data.success) {

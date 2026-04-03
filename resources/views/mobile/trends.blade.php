@@ -61,6 +61,9 @@ Loading reels...
   </div>
 
 </div>
+<script>
+    window.API_BASE_URL = "{{ env('API_BASE_URL') }}";
+</script>
 <script src="{{ asset('mobile/script.js') }}"></script>
 <script src="{{ asset('mobile/trends.js') }}"></script>
 

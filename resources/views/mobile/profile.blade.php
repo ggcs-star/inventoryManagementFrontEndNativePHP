@@ -21,6 +21,9 @@
     <footer class="site-footer" id="site-footer"></footer>
     <nav class="mobile-bottom-nav" id="mobile-bottom-nav"></nav>
     
+    <script>
+        window.API_BASE_URL = "{{ env('API_BASE_URL') }}";
+    </script>
     <script src="{{ asset('mobile/script.js') }}"></script>
     <script src="{{ asset('mobile/profile.js') }}"></script>
 </body>
