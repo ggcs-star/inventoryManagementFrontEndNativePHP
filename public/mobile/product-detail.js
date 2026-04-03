@@ -1,3 +1,4 @@
+const API_BASE_URL = window.API_BASE_URL;
 (function() {
     if (!document.body.classList.contains('product-detail-page') && !document.body.classList.contains('category-products-page')) return;
     
@@ -321,10 +322,66 @@ window.goBack = function() {
         }, 3000);
     }
     
-    window.showSizeChart = function() {
-        document.getElementById('sizeChartPopup').classList.add('active');
-        document.body.style.overflow = 'hidden';
-    };
+    window.showSizeChart = async function() {
+    const productId = currentProduct?.id;
+    if (!productId) return;
+    
+    try {
+        const response = await fetch(`${API_BASE_URL}/products/${productId}/size-chart`);
+        const data = await response.json();
+        
+        if (data.success && data.data.measurements.length > 0) {
+            renderSizeChartPopup(data.data);
+            document.getElementById('sizeChartPopup').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        } else {
+            alert('Size chart not available for this product');
+        }
+    } catch(error) {
+        console.error('Error fetching size chart:', error);
+        alert('Size chart not available');
+    }
+};
+
+function renderSizeChartPopup(chartData) {
+    const body = document.getElementById('sizeChartBody');
+    const title = document.getElementById('sizeChartTitle');
+    
+    if (!body) return;
+    
+    title.textContent = chartData.title || 'Size Chart';
+    
+    let html = `
+        <table class="pdp-size-table">
+            <thead>
+                <tr>
+                    <th>Size</th>
+                    <th>Height (cm)</th>
+                    <th>Width (cm)</th>
+                    <th>Color</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+    
+    chartData.measurements.forEach(item => {
+        html += `
+            <tr>
+                <td><strong>${item.size}</strong></td>
+                <td>${item.height || '-'}</td>
+                <td>${item.width || '-'}</td>
+                <td>${item.color_name || '-'}</td>
+            </tr>
+        `;
+    });
+    
+    html += `
+            </tbody>
+        </table>
+    `;
+    
+    body.innerHTML = html;
+}
     
     window.hideSizeChart = function() {
         document.getElementById('sizeChartPopup').classList.remove('active');
@@ -832,7 +889,7 @@ function renderOfferItems(type) {
         if (document.body.classList.contains('category-products-page')) return;
         const pathParts = window.location.pathname.split('/');
         const slug = pathParts[pathParts.length - 1];
-        const API_URL = `https://retailadmin.ggconsultancy.services/api/products/${slug}`;
+        const API_URL = `${API_BASE_URL}/products/${slug}`;
         try {
             const response = await fetch(API_URL);
             const data = await response.json();
@@ -855,7 +912,7 @@ function renderOfferItems(type) {
     async function fetchBrandFromCategory() {
         if (!currentProduct?.category?.id) return;
         try {
-            const res = await fetch(`https://retailadmin.ggconsultancy.services/api/categories/${currentProduct.category.id}/products`);
+            const res = await fetch(`${API_BASE_URL}/categories/${currentProduct.category.id}/products`)
             const data = await res.json();
             if (data.success && data.data?.products) {
                 const productInCategory = data.data.products.find(p => p.id == currentProduct.id);
@@ -870,7 +927,7 @@ function renderOfferItems(type) {
     
     async function fetchCoupons() {
         try {
-            const res = await fetch('https://retailadmin.ggconsultancy.services/api/coupons');
+            const res = await fetch(`${API_BASE_URL}/coupons`);
             const data = await res.json();
             if (data.success && data.data) {
                 allCoupons = data.data;
@@ -1152,7 +1209,7 @@ function renderOfferItems(type) {
         const navMenu = document.getElementById('productDesktopNavMenu');
         const popup = document.getElementById('productDesktopPopup');
         if (!navMenu) return;
-        fetch('https://retailadmin.ggconsultancy.services/api/categories')
+        fetch(`${API_BASE_URL}/categories`)
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
@@ -1219,7 +1276,7 @@ function renderOfferItems(type) {
         try {
             const categoryId = currentProduct?.category?.id;
             if (!categoryId) { similarSection.style.display = 'none'; return; }
-            const res = await fetch(`https://retailadmin.ggconsultancy.services/api/categories/${categoryId}/products`);
+            const res = await fetch(`${API_BASE_URL}/categories/${categoryId}/products`);
             const data = await res.json();
             if (data.success && data.data?.products) {
                 const otherProducts = data.data.products.filter(p => p.id != currentProduct.id);
@@ -1315,7 +1372,7 @@ function renderOfferItems(type) {
     };
     async function fetchAppSettingsForProductPage() {
     try {
-        const response = await fetch('https://retailadmin.ggconsultancy.services/api/app-settings');
+        const response = await fetch(`${API_BASE_URL}/app-settings`)
         const data = await response.json();
         if (data.success) {
             const appName = data.data.app_name;

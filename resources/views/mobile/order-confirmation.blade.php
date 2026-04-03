@@ -1191,9 +1191,11 @@ body.order-confirmation-page .site-header {
             </div>
         </div>
     </div>
-
+<script>
+    window.API_BASE_URL = "{{ env('API_BASE_URL') }}";
+</script>
     <script>
-        const API_BASE_URL = 'https://retailadmin.ggconsultancy.services/api';
+        const API_BASE_URL = window.API_BASE_URL;
         const token = localStorage.getItem('token');
         const orderId = '{{ $orderId }}';
 
@@ -1208,7 +1210,7 @@ function renderHeader() {
     const isDesktop = window.innerWidth >= 1025;
     
     if (isDesktop) {
-        fetch('https://retailadmin.ggconsultancy.services/api/categories')
+        fetch(`${API_BASE_URL}/categories`)
             .then(r => r.json())
             .then(data => {
                 if (data.success && data.data) {
@@ -1246,7 +1248,7 @@ function renderHeader() {
                     
                     navItems.forEach(item => {
                         item.addEventListener('mouseenter', () => {
-                            fetch('https://retailadmin.ggconsultancy.services/api/categories')
+                            fetch(`${API_BASE_URL}/categories`)
                                 .then(r => r.json())
                                 .then(res => {
                                     if (res.success && res.data) {

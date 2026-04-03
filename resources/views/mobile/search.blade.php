@@ -134,7 +134,9 @@
 
     <div id="suggestions" class="suggestions"></div>
     <div id="results" class="results"></div>
-
+    <script>
+        window.API_BASE_URL = "{{ env('API_BASE_URL') }}";
+    </script>
     <script src="/mobile/search.js"></script>
 </body>
 </html>

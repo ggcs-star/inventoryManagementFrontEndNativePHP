@@ -40,38 +40,18 @@
     </div>
 </main>
 
-<!-- Size Chart Popup -->
+
 <div class="pdp-size-popup" id="sizeChartPopup" onclick="hideSizeChart()">
     <div class="pdp-size-popup-content" onclick="event.stopPropagation()">
         <div class="pdp-size-popup-header">
-            <h3>Size Chart</h3>
+            <h3 id="sizeChartTitle">Size Chart</h3>
             <span class="pdp-size-popup-close" onclick="hideSizeChart()">×</span>
         </div>
-        <div class="pdp-size-popup-body">
-            <table class="pdp-size-table">
-                <thead>
-                    <tr>
-                        <th>Size</th>
-                        <th>Bust</th>
-                        <th>Waist</th>
-                        <th>Hip</th>
-                        <th>Length</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>S</td><td>34</td><td>26</td><td>36</td><td>45</td></tr>
-                    <tr><td>M</td><td>36</td><td>28</td><td>38</td><td>46</td></tr>
-                    <tr><td>L</td><td>38</td><td>30</td><td>40</td><td>46</td></tr>
-                    <tr><td>XL</td><td>40</td><td>32</td><td>42</td><td>46</td></tr>
-                    <tr><td>XXL</td><td>42</td><td>34</td><td>44</td><td>46</td></tr>
-                </tbody>
-            </table>
-            <!-- <div class="pdp-measure-link" onclick="alert('How to Measure guide coming soon!')">How to Measure ›</div> -->
+        <div class="pdp-size-popup-body" id="sizeChartBody">
         </div>
     </div>
 </div>
 
-<!-- Color Popup -->
 <div class="pdp-color-popup" id="colorPopup" onclick="hideColorPopup()">
     <div class="pdp-color-popup-content" onclick="event.stopPropagation()">
         <div class="pdp-color-popup-header">
@@ -81,6 +61,9 @@
         <div class="pdp-color-popup-body" id="colorPopupBody"></div>
     </div>
 </div>
+<script>
+    window.API_BASE_URL = "{{ env('API_BASE_URL') }}";
+</script>
 
 <script src="{{ asset('mobile/product-detail.js') }}"></script>
 

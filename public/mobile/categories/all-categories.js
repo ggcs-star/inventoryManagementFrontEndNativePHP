@@ -1,3 +1,4 @@
+const API_BASE_URL = window.API_BASE_URL;
 class AllCategoriesPage {
     constructor() {
         this.allCategories = [];
@@ -92,7 +93,7 @@ showSidebarSkeleton() {
     
     async fetchCategories() {
         try {
-            const response = await fetch('https://retailadmin.ggconsultancy.services/api/categories');
+            const response = await fetch(`${API_BASE_URL}/categories`);
             const data = await response.json();
             if (data.success) {
                 this.allCategories = data.data;
@@ -116,7 +117,7 @@ showSidebarSkeleton() {
     }
     async fetchUserCategoryOrder() {
         try {
-            const response = await fetch('https://retailadmin.ggconsultancy.services/api/categories/order', {
+            const response = await fetch(`${API_BASE_URL}/categories/order`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                     'Accept': 'application/json'
@@ -206,7 +207,7 @@ showSidebarSkeleton() {
 }
 async fetchAppSettings() {
     try {
-        const response = await fetch('https://retailadmin.ggconsultancy.services/api/app-settings');
+        const response = await fetch(`${API_BASE_URL}/app-settings`);
         const data = await response.json();
         if (data.success) {
             this.appSettings = data.data;
@@ -564,7 +565,7 @@ renderAllCategoriesPopup() {
             ids.push(item.dataset.id);
         });
 
-        fetch('https://retailadmin.ggconsultancy.services/api/categories/order', {
+        fetch(`${API_BASE_URL}/categories/order`, {
             method: "POST",
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token"),
@@ -630,7 +631,7 @@ function hideCategoryPopup() {
 
 document.addEventListener('DOMContentLoaded', () => {
     if (document.body.dataset.page === 'all-categories') {
-        window.allCategoriesPage = new AllCategoriesPage();  // YEH CHANGE KARO
+        window.allCategoriesPage = new AllCategoriesPage();  
     }
 });
 function updateCartCountBadge() {

@@ -1,5 +1,6 @@
 <?php
-$apiUrl = 'https://retailadmin.ggconsultancy.services/api/app-settings';
+$baseUrl = getenv('API_BASE_URL');
+$apiUrl = $baseUrl . '/app-settings';
 $response = file_get_contents($apiUrl);
 $data = json_decode($response, true);
 
