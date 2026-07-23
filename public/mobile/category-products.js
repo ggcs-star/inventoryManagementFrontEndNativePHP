@@ -67,7 +67,7 @@ const response = await fetch(`${API_BASE_URL}/categories/${categoryId}/products`
             return;
         }
 
-        const fallbackImage = 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=200&auto=format&fit=crop';
+        const fallbackImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10';
 
         grid.innerHTML = filteredProducts.map(product => {
             const price = parseFloat(product.final_price || product.price || 0);

@@ -8,7 +8,7 @@ const APP_CONFIG = {
         BANNERS: `${API_BASE_URL}/banners`,
         APP_SETTINGS: `${API_BASE_URL}/app-settings`,
     },
-    FALLBACK_IMAGE: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop',
+    FALLBACK_IMAGE: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10',
 };
 
 class RapidRetailsEngine {
@@ -685,7 +685,7 @@ showCategoryPopup(category) {
     title.textContent = category.name;
     
     if (category.children && category.children.length > 0) {
-        const fallbackImage = 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=200&auto=format&fit=crop';
+        const fallbackImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10';
         
         body.innerHTML = category.children.map(child => `
             <div class="subcategory-card" onclick="window.location.href='/products?subcategory=${child.id}'">
@@ -733,35 +733,35 @@ async renderTrending(res) {
             name: "WÜWEN SMAI ONE",
             slug: "wuwen-smai-one",
             description: "Trending now",
-            image_url: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=200&auto=format&fit=crop"
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10"
         },
         {
             id: 2,
             name: "SMARTPHONE PRO",
             slug: "smartphone-pro",
             description: "Latest technology",
-            image_url: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=200&auto=format&fit=crop"
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10"
         },
         {
             id: 3,
             name: "WIRELESS BUDS",
             slug: "wireless-buds",
             description: "Premium sound",
-            image_url: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=200&auto=format&fit=crop"
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10"
         },
         {
             id: 4,
             name: "VOUVIEN COTTON T-SHIRT",
             slug: "vouvier-cotton-tshirt",
             description: "Comfort wear",
-            image_url: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=200&auto=format&fit=crop"
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10"
         },
         {
             id: 5,
             name: "FUEL THE HUSTLE",
             slug: "fuel-the-hustle",
             description: "Snack smarter",
-            image_url: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=200&auto=format&fit=crop"
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10"
         }
     ];
 
@@ -925,7 +925,7 @@ async renderStyleSpotlight() {
             rating: "4.5",
             current: "1260",
             old: "1638",
-            image_url: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=200&auto=format&fit=crop"
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10"
         },
         {
             brand: "TechPro",
@@ -933,7 +933,7 @@ async renderStyleSpotlight() {
             rating: "4.8",
             current: "49800",
             old: "64740",
-            image_url: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=200&auto=format&fit=crop"
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10"
         },
         {
             brand: "AudioMax",
@@ -941,7 +941,7 @@ async renderStyleSpotlight() {
             rating: "4.6",
             current: "4999",
             old: "7999",
-            image_url: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?q=80&w=200&auto=format&fit=crop"
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10"
         },
         {
             brand: "SportLife",
@@ -949,7 +949,7 @@ async renderStyleSpotlight() {
             rating: "4.7",
             current: "3500",
             old: "5000",
-            image_url: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=200&auto=format&fit=crop"
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10"
         },
         {
             brand: "WatchWorld",
@@ -957,7 +957,7 @@ async renderStyleSpotlight() {
             rating: "4.4",
             current: "2999",
             old: "4500",
-            image_url: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=200&auto=format&fit=crop"
+            image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10"
         }
     ];
 

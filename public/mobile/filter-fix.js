@@ -827,7 +827,7 @@ async function loadProductsForCategory(categoryId, subCategoryId = null) {
                 grid.innerHTML = products.map(p => `
                     <div class="product-card" data-slug="${p.slug || ''}">
                         <div class="product-image-wrapper">
-                            <img src="${p.image_url || 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=300&h=400&fit=crop'}" alt="${p.name}">
+                            <img src="${p.image_url || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10'}" alt="${p.name}">
                         </div>
                         <div class="product-info">
                             <div class="product-brand">${p.brand || 'RAPID RETAIL'}</div>

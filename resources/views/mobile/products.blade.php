@@ -1252,7 +1252,7 @@ updateMobileLogo();
         if (!strip) return;
         if (!allSubs.length) { strip.style.display = 'none'; return; }
         
-        const fallback = 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=200&auto=format&fit=crop';
+        const fallback = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10';
         
         strip.innerHTML = allSubs.map(sub => `
             <div class="sub-item ${sub.id == currentSub ? 'active' : ''}" onclick="changeSubcategory(${sub.id})">
@@ -1303,7 +1303,7 @@ updateMobileLogo();
     // ✅ Get latest wishlist every time
     const latestWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
-    const fallback = 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=200&auto=format&fit=crop';
+    const fallback = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10';
 
     grid.innerHTML = products.map(p => {
         const price = parseFloat(p.final_price || p.price || 0);

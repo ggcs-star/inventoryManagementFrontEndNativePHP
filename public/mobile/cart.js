@@ -242,11 +242,11 @@ function getCartItemHTML(item, index, qty, price, itemTotal) {
     return `
         <div class="cart-item" data-index="${index}" data-product-id="${item.id}">
             <div class="cart-item-main">
-                <img src="${item.image || 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c'}" 
+                <img src="${item.image || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10'}" 
                      alt="${item.name}" 
                      class="cart-item-img"
                      onclick="window.location.href='/product/${item.slug || item.id}'"
-                     onerror="this.src='https://images.unsplash.com/photo-1503342217505-b0a15ec3261c'">
+                     onerror="this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10'">
                 
                 <div class="cart-item-info">
                     <div class="cart-item-brand">${item.brand || ''}</div>
@@ -639,7 +639,7 @@ window.addToBag = function(product) {
     } else if (product.image_url) {
         imageUrl = product.image_url;
     } else {
-        imageUrl = 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c';
+        imageUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10';
     }
 
     const cartItem = {

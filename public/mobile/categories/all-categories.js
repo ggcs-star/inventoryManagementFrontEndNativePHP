@@ -453,10 +453,8 @@ renderAllCategoriesPopup() {
         document.head.appendChild(style);
         
         const fallbackImages = [
-            'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=200&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=200&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=200&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1598033121397-5ecc08fe7f1f?q=80&w=200&auto=format&fit=crop'
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10',
+         
         ];
 
         const colors = [
@@ -603,7 +601,7 @@ function showCategoryPopup(cat) {
     title.textContent = cat.name;
     
     if (cat.children && cat.children.length > 0) {
-        const fallbackImage = 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=200&auto=format&fit=crop';
+        const fallbackImage = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScm3h1EvKYpSOta5VEyCUJ43_rHtY9iFlwM112O6HbKA&s=10';
         
         body.innerHTML = cat.children.map(child => `
             <div class="subcategory-card" onclick="window.location.href='/products?subcategory=${child.id}'">
